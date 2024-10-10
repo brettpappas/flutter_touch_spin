@@ -42,15 +42,9 @@ class TouchSpin extends StatefulWidget {
 class _TouchSpinState extends State<TouchSpin> {
   late num _value;
 
-  bool get minusBtnDisabled =>
-      _value <= widget.min ||
-      _value - widget.step < widget.min ||
-      !widget.enabled;
+  bool get minusBtnDisabled => _value <= widget.min || _value - widget.step < widget.min || !widget.enabled;
 
-  bool get addBtnDisabled =>
-      _value >= widget.max ||
-      _value + widget.step > widget.max ||
-      !widget.enabled;
+  bool get addBtnDisabled => _value >= widget.max || _value + widget.step > widget.max || !widget.enabled;
 
   @override
   void initState() {
@@ -70,7 +64,7 @@ class _TouchSpinState extends State<TouchSpin> {
 
   Color? _spinButtonColor(bool btnDisabled) => btnDisabled
       ? widget.iconDisabledColor ?? Theme.of(context).disabledColor
-      : widget.iconActiveColor ?? Theme.of(context).textTheme.button?.color;
+      : widget.iconActiveColor ?? Theme.of(context).textTheme.labelLarge?.color;
 
   void _adjustValue(num adjustment) {
     num newVal = _value + adjustment;
